@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resultado do Cadastro</title>
+  <link rel="stylesheet" href="../css/style-selecao.css" />
+  <link rel="stylesheet" href="../css/style-resultado.css" />
+</head>
+<body>
+
+  <nav class="main-nav">
+    <a href="selacao.html">🏠 Seleção</a>
+    <a href="eliminatorias.html">📊 Eliminatórias</a>
+    <a href="cadastro.html">📝 Cadastro</a>
+    <a href="login.html">🔐 Login</a>
+    <button id="theme-toggle" onclick="alternarTema()">🌙 Tema</button>
+  </nav>
+
+  <div class="container resultado-container">
+    <h2>🎉 Cadastro Realizado!</h2>
+    <p class="form-subtitulo">Confira os dados do torcedor</p>
+
+    <div id="resultado-dados" class="cards-resultado">
+      <div class="card-dado"><span>Nome</span><strong id="res-nome"></strong></div>
+      <div class="card-dado"><span>Data de Nascimento</span><strong id="res-nascimento"></strong></div>
+      <div class="card-dado"><span>E-mail</span><strong id="res-email"></strong></div>
+      <div class="card-dado"><span>País</span><strong id="res-pais"></strong></div>
+      <div class="card-dado"><span>Jogador Favorito</span><strong id="res-jogador"></strong></div>
+      <div class="card-dado destaque"><span>Idade</span><strong id="res-idade"></strong></div>
+      <div class="card-dado destaque"><span>Categoria</span><strong id="res-categoria"></strong></div>
+    </div>
+
+    <a class="btn-voltar" href="cadastro.html">↩ Novo cadastro</a>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

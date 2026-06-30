@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleção Brasileira — Rumo ao Hexa</title>
+  <link rel="stylesheet" href="../css/style-selecao.css" />
+</head>
+<body>
+
+  <nav class="main-nav">
+    <a href="selacao.html" class="active">🏠 Seleção</a>
+    <a href="eliminatorias.html">📊 Eliminatórias</a>
+    <a href="cadastro.html">📝 Cadastro</a>
+    <a href="login.html">🔐 Login</a>
+    <button id="theme-toggle" onclick="alternarTema()">🌙 Tema</button>
+  </nav>
+
+
+
+  <div class="container">
+    
+    <h1 id="titulo-selecao"
+      onclick="window.alert('Seleção Brasileira - Rumo ao Hexa!'); mostrarIncentivo();"
+      onmouseover="mudarCorTitulo()"
+      onmouseout="restaurarCorTitulo()">
+      Seleção Brasileira
+    </h1>
+    <p class="subtitulo">Rumo ao Hexa</p>
+
+    <img id="img-selecao"
+         src="https://s2-ge.glbimg.com/L2IGBnYIfUNDX5edfE7WQnzuFB8=/0x0:1000x666/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/Q/k/DNwjBuS3iABZurdTAVlA/foto-oficial.jpg"
+         alt="selecao brasileira"
+         onclick="trocarImagem()" />
+
+    <p id="curiosidade" ondblclick="trocarCuriosidade()">
+      O Brasil é a única seleção que disputou todas as edições da Copa do Mundo, desde 1930.
+      Dê um duplo clique para descobrir outra curiosidade!
+    </p>
+
+    <h2 class="titulo-secao">Jogadores Convocados</h2>
+    <ul id="lista-jogadores">
+      <li>Alisson — Goleiro</li>
+      <li>Marquinhos — Zagueiro</li>
+      <li>Danilo — Lateral</li>
+      <li>Casemiro — Volante</li>
+      <li>Bruno Guimarães — Meio-campo</li>
+      <li>Rodrygo — Atacante</li>
+      <li>Vinícius Júnior — Atacante</li>
+      <li>Raphinha — Atacante</li>
+      <li>Endrick — Atacante</li>
+      <li>Neymar Jr. — Atacante</li>
+      <li>Éder Militão — Zagueiro</li>
+      <li>Lucas Paquetá — Meio-campo</li>
+    </ul>
+
+    <p id="clique-msg"></p>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

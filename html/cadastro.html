@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Torcedor</title>
+  <link rel="stylesheet" href="../css/style-selecao.css" />
+  <link rel="stylesheet" href="../css/style-cadastro.css" />
+</head>
+<body>
+
+  <nav class="main-nav">
+    <a href="selacao.html">🏠 Seleção</a>
+    <a href="eliminatorias.html">📊 Eliminatórias</a>
+    <a href="cadastro.html" class="active">📝 Cadastro</a>
+    <a href="login.html">🔐 Login</a>
+    <button id="theme-toggle" onclick="alternarTema()">🌙 Tema</button>
+  </nav>
+
+  <div class="container form-container">
+    <h2>Cadastro de Torcedor</h2>
+    <p class="form-subtitulo">Faça parte da torcida da Seleção Brasileira!</p>
+
+    <form id="formCadastro" action="#" method="post">
+
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+      <small id="contador-nome">0 caractere(s) digitado(s)</small>
+
+      <label for="dataNascimento">Data de Nascimento:</label>
+      <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+      <small id="feedback-email"></small>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required>
+      <small id="feedback-senha"></small>
+
+      <label for="confirmarSenha">Confirmar Senha:</label>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+      <small id="feedback-confirmarSenha"></small>
+
+      <label for="pais">País:</label>
+      <select id="pais" name="pais" required>
+        <option value="">Selecione...</option>
+        <option value="Brasil">Brasil</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Uruguai">Uruguai</option>
+        <option value="Colômbia">Colômbia</option>
+        <option value="Equador">Equador</option>
+        <option value="Portugal">Portugal</option>
+        <option value="Outro">Outro</option>
+      </select>
+
+      <label for="jogadorFavorito">Jogador Favorito:</label>
+      <input type="text" id="jogadorFavorito" name="jogadorFavorito"
+             placeholder="Dê um duplo clique para sugestões" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

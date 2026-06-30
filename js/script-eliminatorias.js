@@ -50,6 +50,19 @@ function getMedal(rank) {
   return `<span style="color:#999">${rank}°</span>`;
 }
 
+
+function destacarNome(el, ehUltimo, ehClassificado) {
+  if (ehUltimo) {
+    el.classList.add('nome-ultimo-colocado');
+  } else if (ehClassificado) {
+    el.classList.add('nome-classificado');
+  }
+}
+
+function restaurarNome(el) {
+  el.classList.remove('nome-ultimo-colocado', 'nome-classificado');
+}
+
 function setStatus(type, text) {
   document.getElementById('status-dot').className = 'dot ' + type;
   document.getElementById('status-text').textContent = text;
@@ -58,6 +71,8 @@ function setStatus(type, text) {
 
 function renderTable(standings, updatedAt) {
   const wrapper = document.getElementById('table-wrapper');
+
+  const totalTimes = standings.length;
 
   const rows = standings.map((team, i) => {
     const rank           = i + 1;
@@ -68,11 +83,19 @@ function renderTable(standings, updatedAt) {
     const displayName    = NAMES_PT[team.name] || team.name;
     const jogos          = (team.wins || 0) + (team.losses || 0) + (team.draws || 0);
     const saldo          = team.gd != null ? (team.gd > 0 ? '+' + team.gd : team.gd) : '—';
+    const ehUltimo       = rank === totalTimes;
+    const ehClassificado = rank <= 6;
 
     return `
       <tr class="${zoneClass} ${highlightClass}">
         <td>${getMedal(rank)}</td>
-        <td>${flag} ${displayName}</td>
+        <td>
+          <span class="nome-selecao"
+                onmouseover="destacarNome(this, ${ehUltimo}, ${ehClassificado})"
+                onmouseout="restaurarNome(this)">
+            ${flag} ${displayName}
+          </span>
+        </td>
         <td>${jogos}</td>
         <td>${team.wins   || 0}</td>
         <td>${team.draws  || 0}</td>
@@ -121,7 +144,7 @@ async function fetchStandings() {
 
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 4000); // 4s de timeout
+    const timeout = setTimeout(() => controller.abort(), 4000);
 
     const espnRes = await fetch(
       'https://site.api.espn.com/apis/v2/sports/soccer/conmebol.world_cup_qualifying/standings',
@@ -174,8 +197,8 @@ async function fetchStandings() {
 }
 
 
-(function init() {
-  // Exibe os dados reais de imediato (sem esperar API)
+(function init()
+ {
   const now = new Date().toLocaleString('pt-BR');
   renderTable(DADOS_FINAIS, now + ' — classificação final set/2025');
   setStatus('live', 'Classificação final — CONMEBOL 2026');
